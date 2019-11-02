@@ -52,8 +52,8 @@ def filelist():
     print(f)
     return f
 shi = date.index(filelist()[-1].replace('.txt',''))+1#現有名稱位址+1 無法找出最後一個中文數字檔案
-print(shi)
-print(len(date))
+print('檔案章節:'+ str(shi))
+print('最大章節:'+ str(len(date)))
 ###取章節內容源碼
 for i in date[shi::2]:#8304=4150章 8282=4139章
     #print(i)
