@@ -51,7 +51,7 @@ def filelist():
     f = os.listdir(mypath)
     print(f)
     return f
-shi = date.index(filelist()[-1].replace('.txt',''))+1#現有名稱位址+1 無法找出最後一個中文數字檔案
+shi = date.index(filelist()[-1].replace('.txt',''))+1#現有名稱位址+1
 print('檔案章節:'+ str(shi))
 print('最大章節:'+ str(len(date)))
 ###取章節內容源碼
