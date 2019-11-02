@@ -33,12 +33,12 @@ def filelist():
     f = os.listdir(mypath)
     print(f)
     return f
-shi = date.index(filelist()[-1].replace('.txt',''))+1#現有名稱位址+1 無法找出最後一個中文數字檔案
-print('檔案章節:'+ str(shi))
-print('最大章節:'+ str(len(date)))
+shi = date.index(filelist()[-1].replace('.txt',''))#現有名稱位址
+print('檔案章節位址:'+ str(shi))
+print('最大章節位址:'+ str(len(date)))
 
 ###取章節內容源碼
-for i in date[shi:1000:2]:#
+for i in date[shi+1:1000:2]:#
     #print(i)
     content_link = requests.get(i, headers = request_headers)
     content_link.encoding = 'utf-8'
@@ -52,7 +52,6 @@ for i in date[shi:1000:2]:#
     #print(content1.text)
     #存入內容    
     f = open('C:/Users/jimmy2799/Desktop/超級吞噬系統/{}.txt'.format(title), mode ='w', encoding ='utf-8')
-    f.write(title+'\n'*2)
     f.write(content1.text+'\n'*2)
     f.close()
     time.sleep(1.1)
