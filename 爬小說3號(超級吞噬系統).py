@@ -33,13 +33,12 @@ def filelist():
     f = os.listdir(mypath)
     print(f)
     return f
-shi = 0
 shi = date.index(filelist()[-1].replace('.txt',''))+1#現有名稱位址+1 無法找出最後一個中文數字檔案
 print('檔案章節:'+ str(shi))
 print('最大章節:'+ str(len(date)))
 
 ###取章節內容源碼
-for i in date[shi:2:2]:#
+for i in date[shi:1000:2]:#
     #print(i)
     content_link = requests.get(i, headers = request_headers)
     content_link.encoding = 'utf-8'
