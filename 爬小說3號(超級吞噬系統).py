@@ -38,7 +38,7 @@ print('檔案章節位址:'+ str(shi))
 print('最大章節位址:'+ str(len(date)))
 
 ###取章節內容源碼
-for i in date[shi+1:1000:2]:#
+for i in date[shi+1:2002:2]:#
     #print(i)
     content_link = requests.get(i, headers = request_headers)
     content_link.encoding = 'utf-8'
