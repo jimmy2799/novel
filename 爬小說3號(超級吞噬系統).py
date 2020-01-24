@@ -38,23 +38,26 @@ print('檔案章節位址:'+ str(shi))
 print('最大章節位址:'+ str(len(date)))
 
 ###取章節內容源碼
-for i in date[shi+1:2002:2]:#
+for i in date[shi+1:10002:2]:#
     #print(i)
-    content_link = requests.get(i, headers = request_headers)
-    content_link.encoding = 'utf-8'
-    #print(content_link.text)
-    ###解析
-    content = bs(content_link.text,'lxml')
-    tag_h1 = content.find('div',class_="name")#標題
-    title = tag_h1.text.replace('《超級吞噬系統》','')#拿來當檔名
-    print('正在下載：'+ title)
-    content1 = content.find('div',class_="content")#class是Python的保留字，所以Beautiful Soup改以class_
-    #print(content1.text)
-    #存入內容    
-    f = open('C:/Users/jimmy2799/Desktop/超級吞噬系統/{}.txt'.format(title), mode ='w', encoding ='utf-8')
-    f.write(content1.text+'\n'*2)
-    f.close()
-    time.sleep(1.1)
+    if i in filelist():
+        continue #continue跳出本次循環 break跳出整個循環
+    else:
+        content_link = requests.get(i, headers = request_headers)
+        content_link.encoding = 'utf-8'
+        #print(content_link.text)
+        ###解析
+        content = bs(content_link.text,'lxml')
+        tag_h1 = content.find('div',class_="name")#標題
+        title = tag_h1.text.replace('《超級吞噬系統》','')#拿來當檔名
+        print('正在下載：'+ title)
+        content1 = content.find('div',class_="content")#class是Python的保留字，所以Beautiful Soup改以class_
+        #print(content1.text)
+        #存入內容    
+        f = open('C:/Users/jimmy2799/Desktop/超級吞噬系統/{}.txt'.format(title), mode ='w', encoding ='utf-8')
+        f.write(content1.text+'\n'*2)
+        f.close()
+        time.sleep(1.1)
 print('下載完成')
 #input('Enter鍵離開')
 '''
