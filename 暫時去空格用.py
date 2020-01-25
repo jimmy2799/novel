@@ -10,3 +10,4 @@ for file_ in filelist():
         read_data = f.read()
         f.seek(0, 0)#讀寫偏移位置移到首行  
         f.write(read_data.replace('\n'*3,'\n'*2))
+        f.truncate(f.tell())#truncate游標後斷點不要  #tell遊標位子
